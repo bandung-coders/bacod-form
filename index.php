@@ -50,10 +50,11 @@ if (isset($_GET['url'])) {
       <?php
       if (isset($_GET["url"])) {
         if (!empty($data)) {
-          $questions = json_decode($data["questions"]);
-          if (!empty($data["name"])) {
-            echo '<h2 class="center color-white mb-10">'.$data["name"].'</h2>';
-          }
+          if ($data["is_register"] === "t") {
+            $questions = json_decode($data["questions"]);
+            if (!empty($data["name"])) {
+              echo '<h2 class="center color-white mb-10">'.$data["name"].'</h2>';
+            }
         ?>
         <form id="registerForm" form-id="<?= $data["id"] ?>">
           <div class="form-group">
@@ -112,6 +113,9 @@ if (isset($_GET['url'])) {
           <button type="submit" class="btn btn-primary">KIRIM</button>
         </form>
         <?php   
+          } else {
+            echo '<h1 class="center color-primary mt-10">Maaf</h1><p class="center color-white">Pendaftaran sudah ditutup, coba lagi lain waktu yaa, jangan lupa pantau terus instagram kita di <a href="https://www.instagram.com/bandung.coders/" target="_blank" class="color-white">bandung.coders</a></p>';
+          }
         } else {
           echo '<h1 class="center color-red mt-10">404<br/>NOT FOUND</h1>';
         }

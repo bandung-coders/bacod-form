@@ -4,7 +4,7 @@ $env_data = parse_ini_file($env_path);
 
 $dbhost = $env_data['DB_HOST'];
 $dbport = $env_data['DB_PORT'];
-$dbname = $env_data['DB_NAME']
+$dbname = $env_data['DB_NAME'];
 $dbuser = $env_data['DB_USERNAME'];
 $dbpass = $env_data['DB_PASSWORD'];
 
@@ -14,6 +14,4 @@ if (!$conn) {
     echo "SOMETHING WRONG, PLEASE CONTACT ADMIN";
     die();
 }
-
-pg_close($conn);
 ?>

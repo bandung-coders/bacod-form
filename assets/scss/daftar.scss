@@ -1,0 +1,373 @@
+$highest-index: 2000;
+$main-class: ".form";
+
+* {
+  box-sizing: border-box;
+  &::before,
+  &::after {
+    @extend *;
+  }
+}
+
+@keyframes zoomInModal {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  85% {
+    transform: scale(1.1);
+  }
+  90% {
+    transform: scale(1.15);
+  }
+  95% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes resitdc-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes resitdc-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+:root {
+  $primary-color: #52c0ff;
+  --color-primary: #{$primary-color};
+  --color-black: #222;
+  --color-white: #fff;
+  --color-red: #f44;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  margin: 0;
+  font-size: 14px;
+  color: var(--b-color-black-1);
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+}
+
+label {
+  height: 100%;
+}
+
+#bacod-framework {
+  width: 100%;
+  padding-bottom: 4rem;
+}
+
+.container {
+  $margin-x: auto;
+  $padding-x: 28px;
+  width: 100%;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: $margin-x;
+  margin-left: $margin-x;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+.form-group {
+  position: relative;
+  & &-label {
+    font-weight: bold;
+  }
+}
+
+#registerForm {
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 550px;
+  }
+  #registerForm {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.center {
+  text-align: center;
+  &-middle {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 26px;
+    margin-bottom: 20px;
+  }
+  &-button {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+#boba-logo {
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  width: 260px;
+  height: 55px;
+  background-repeat: no-repeat;
+}
+
+#{$main-class}-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  & &-label {
+    color: var(--color-white);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    line-height: 1.6rem;
+    &.required {
+      &::after {
+        content: " *";
+        color: var(--color-red);
+      }
+    }
+  }
+  & &-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  & &-message {
+    font-size: 1.2rem;
+    color: var(--color-white);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    color: var(--color-red);
+  }
+}
+
+.btn {
+  border: none;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  padding: 13px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  &-primary {
+    background: var(--color-primary);
+    color: #222;
+  }
+  &-white {
+    background: var(--color-white);
+    color: #222;
+  }
+  &-small {
+    font-size: 1rem;
+  }
+}
+
+#{$main-class}-input {
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--color-primary);
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  background: rgba(82, 192, 255, 0.2);
+  &:focus {
+    color: var(--color-white);
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+textarea.form-input {
+  resize: none;
+  min-height: 100px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $highest-index + 10;
+  &#{&}-hidden {
+    display: none;
+  }
+  & &-title {
+    color: var(--color-red);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+  & &-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  & &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
+    z-index: 1;
+  }
+  & &-box {
+    min-width: 10px;
+    min-height: 5px;
+    padding: 25px 25px;
+    background-color: #000;
+    color: #fff;
+    z-index: 5;
+    transition: ease-in-out;
+    animation: zoomInModal 0.3s;
+    font-size: 1.3rem;
+    border: 2px solid var(--color-primary);
+    // box-shadow: 0 0 10px 1px rgba(99, 193, 255, 0.2);
+    &-xs {
+      width: 100px;
+    }
+    &-sm {
+      width: 170px;
+    }
+    &-md {
+      width: 260px;
+    }
+    &-responsive {
+      width: 80%;
+    }
+    &-radius {
+      &-xs {
+        border-radius: 5px;
+      }
+      &-sm {
+        border-radius: 10px;
+      }
+      &-md {
+        border-radius: 15px;
+      }
+      &-lg {
+        border-radius: 20px;
+      }
+      &-xl {
+        border-radius: 25px;
+      }
+    }
+  }
+  & &-footer {
+    margin-top: 15px;
+  }
+}
+
+.spin {
+  display: inline-block !important;
+  -webkit-animation: resitdc-spin 2s infinite linear;
+  animation: resitdc-spin 2s infinite linear;
+}
+
+.color {
+  &-white {
+    color: var(--color-white);
+  }
+  &-black {
+    color: var(--color-black);
+  }
+  &-red {
+    color: var(--color-red);
+  }
+  &-green {
+    color: #4f4;
+  }
+  &-primary {
+    color: var(--color-primary);
+  }
+}
+
+$direction-end: 11;
+$m-directions: "mb", "mt", "ml", "mr", "mx", "my";
+@each $direction in $m-directions {
+  @for $i from 1 to $direction-end {
+    .#{$direction}-#{$i} {
+      $spacing: 0.25rem * $i;
+      @if $direction == "mb" {
+        margin-bottom: $spacing;
+      } @else if $direction == "mt" {
+        margin-top: $spacing;
+      } @else if $direction == "ml" {
+        margin-left: $spacing;
+      } @else if $direction == "mr" {
+        margin-right: $spacing;
+      }
+    }
+  }
+}
+$p-directions: "pb", "pt", "pl", "pr", "px", "py";
+@each $direction in $p-directions {
+  @for $i from 1 to $direction-end {
+    .#{$direction}-#{$i} {
+      $spacing: 0.25rem * $i;
+      @if $direction == "pb" {
+        padding-bottom: $spacing !important;
+      } @else if $direction == "pt" {
+        padding-top: $spacing !important;
+      } @else if $direction == "pl" {
+        padding-left: $spacing !important;
+      } @else if $direction == "pr" {
+        padding-right: $spacing !important;
+      } @else if $direction == "px" {
+        padding-right: $spacing !important;
+        padding-left: $spacing !important;
+      } @else if $direction == "py" {
+        padding-top: $spacing !important;
+        padding-bottom: $spacing !important;
+      }
+    }
+  }
+}

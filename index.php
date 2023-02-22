@@ -24,7 +24,7 @@ if (isset($_GET['url'])) {
   <meta name="robots" content="index,follow" />
   <meta name="googlebot" content="index,follow" />
   <meta property="og:type" content="image/jpeg" />
-  <meta property="og:url" content="https://form.bacod.id<?= $url ?>" />
+  <meta property="og:url" content="https://form.bacod.id<?= '/'.$url ?>" />
   <meta property="og:image" content=https://bacod.id/bacod.png />
   <meta name="author" content="Restu D. Cahyo" />
   <meta name="keywords" content="BACOD" />

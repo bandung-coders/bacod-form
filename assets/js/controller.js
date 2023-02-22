@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openModal = () => {
     const bacodFramework = document.getElementById("bacod-framework");
-    let modalText = "Semua materi yang nanti disampaikan di bootcamp nilainya sangat MAHAL, tapi akan diberikan secara GRATIS. <b>Dengan syarat</b>, <i>kamu harus mengikutinya sampai selesai dan dengan bersungguh-sungguh.</i>";
+    let modalText = "Data yang kamu input akan tersimpan di database BACOD sampai kedepannya, kamu yakin ingin mengirim data ini?";
 
     const modalMain = document.createElement("div");
     modalMain.classList.add("modal");
@@ -112,8 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class="modal-title">MOHON DIBACA</h3>
         ${modalText}
         <div class="modal-footer">
-          <button type="button" id="${btnAgree}" class="btn btn-primary btn-small">SAYA SETUJU</button>
-          <button type="button" id="${btnDisagree}" class="btn btn-white btn-small mt-3">SAYA TIDAK SETUJU</button>
+          <button type="button" id="${btnAgree}" class="btn btn-primary btn-small">IYA</button>
+          <button type="button" id="${btnDisagree}" class="btn btn-white btn-small mt-3">TIDAK</button>
         </div>
       </div>
     </div>`;
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#4F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
     </div>
     <h3 class="center">DATA TERKIRIM</h3>
-    <p class="center">Kami akan membaca jawaban dari setiap peserta untuk pertimbangan mengikuti bootcamp ini dan kami akan mengirim pemberitahuan ke Email / Whatsapp di tanggal <b>3 April 2022</b>. Untuk pertanyaan lebih lanjut kamu bisa DM kami di instagram <a href="https://www.instagram.com/bandung.coders/" target="_blank" class="color-primary">bandung.coders</a></p>
+    <p class="center">Kami mengirim pemberitahuan ke Whatsapp atau Email. Jika kamu tidak menerimanya coba pastikan nomor yang kamu masukan sesuai dengan nomor whatsapp kamu, Untuk pertanyaan lebih lanjut kamu bisa DM kami di instagram <a href="https://www.instagram.com/bandung.coders/" target="_blank" class="color-primary">bandung.coders</a></p>
     <div class="center">
       <button type="button" id="ok" class="btn btn-primary">OK</div>
     </div>
